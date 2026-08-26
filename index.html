@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="login-wrapper">
+    <section class="login-card">
+      <div class="brand">
+        <div class="logo">L</div>
+        <h1>Welcome Back</h1>
+        <p>আপনার অ্যাকাউন্টে লগইন করুন</p>
+      </div>
+
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="email">ইমেইল</label>
+          <input type="email" id="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="input-group">
+          <div class="password-label">
+            <label for="password">পাসওয়ার্ড</label>
+            <a href="#" id="forgotPassword">পাসওয়ার্ড ভুলে গেছেন?</a>
+          </div>
+          <div class="password-box">
+            <input type="password" id="password" placeholder="আপনার পাসওয়ার্ড" required>
+            <button type="button" id="togglePassword" aria-label="পাসওয়ার্ড দেখান">Show</button>
+          </div>
+        </div>
+
+        <label class="remember">
+          <input type="checkbox" id="remember">
+          <span>আমাকে মনে রাখুন</span>
+        </label>
+
+        <button class="login-btn" type="submit">Login</button>
+        <p id="message" class="message"></p>
+      </form>
+
+      <p class="signup">অ্যাকাউন্ট নেই? <a href="#">Sign Up</a></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

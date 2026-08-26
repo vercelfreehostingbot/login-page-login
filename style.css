@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, "Noto Sans Bengali", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(124, 58, 237, .45), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(37, 99, 235, .35), transparent 35%),
+    #0f172a;
+  color: #e5e7eb;
+}
+
+.login-wrapper {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: min(100%, 430px);
+  padding: 38px;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 24px;
+  background: rgba(15, 23, 42, .72);
+  box-shadow: 0 25px 70px rgba(0,0,0,.4);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 16px;
+  display: grid;
+  place-items: center;
+  border-radius: 17px;
+  background: linear-gradient(135deg, #8b5cf6, #2563eb);
+  font-size: 28px;
+  font-weight: 800;
+  box-shadow: 0 12px 30px rgba(99,102,241,.35);
+}
+
+.brand h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.brand p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #cbd5e1;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  outline: none;
+  background: #111827;
+  color: #fff;
+  transition: .2s;
+}
+
+input:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139,92,246,.15);
+}
+
+.password-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.password-label label {
+  margin-bottom: 8px;
+}
+
+.password-label a,
+.signup a {
+  color: #a78bfa;
+  text-decoration: none;
+}
+
+.password-label a:hover,
+.signup a:hover {
+  text-decoration: underline;
+}
+
+.password-box {
+  position: relative;
+}
+
+.password-box input {
+  padding-right: 62px;
+}
+
+.password-box button {
+  position: absolute;
+  right: 8px;
+  top: 7px;
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #1e293b;
+  color: #c4b5fd;
+  cursor: pointer;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 2px 0 22px;
+}
+
+.remember input {
+  accent-color: #8b5cf6;
+}
+
+.remember span {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #8b5cf6, #2563eb);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(79,70,229,.35);
+}
+
+.message {
+  min-height: 20px;
+  margin-top: 14px;
+  text-align: center;
+  font-size: 14px;
+  color: #a7f3d0;
+}
+
+.signup {
+  margin-top: 24px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 28px 22px;
+  }
+
+  .brand h1 {
+    font-size: 24px;
+  }
+}
