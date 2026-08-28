@@ -1,18 +1,1 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-    <meta name="description" content="An application built with Google AI Studio." />
-    <meta property="og:title" content="My Google AI Studio App" />
-    <meta property="og:description" content="An application built with Google AI Studio." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
-
+<!doctype html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Demo Portal</title><link rel="stylesheet" href="css/style.css"></head><body><header><b>◆ Demo Portal</b><button id="theme">🌙</button></header><main><section id="login" class="card"><div class="icon">◆</div><h1>Welcome Back</h1><p>Login to explore the demo.</p><input id="email" type="email" placeholder="Email"><input id="pass" type="password" placeholder="Password"><button class="primary" onclick="login()">Login</button><p id="msg"></p><span>New here? <button class="link" onclick="signupPage()">Create account</button></span></section><section id="signup" class="card hide"><div class="icon">+</div><h1>Create Account</h1><p>Demo only — no real account is created.</p><input id="name" placeholder="Full name"><input id="newEmail" type="email" placeholder="Email"><input id="newPass" type="password" placeholder="Password"><button class="primary" onclick="signup()">Sign Up</button><p id="signupMsg"></p><span>Already registered? <button class="link" onclick="loginPage()">Login</button></span></section><section id="dash" class="hide"><div class="hero"><small>● ONLINE</small><h1>Hello, <span id="user">User</span> 👋</h1><p>Your demo dashboard is ready.</p></div><div class="stats"><div class="card"><small>Users</small><strong>128</strong></div><div class="card"><small>Tasks</small><strong>24</strong></div><div class="card"><small>Messages</small><strong>09</strong></div></div><div class="grid"><div class="card panel"><h2>Quick Actions</h2><button class="action">＋ New Task</button><button class="action">👤 Profile</button><button class="action">⚙ Settings</button></div><div class="card panel"><h2>Demo Status</h2><p>Frontend-only test. Nothing is connected.</p><button class="logout" onclick="logout()">Logout</button></div></div></section></main><script src="js/app.js"></script></body></html>
