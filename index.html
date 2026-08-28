@@ -1,84 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Login & Dashboard</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <main class="app">
-    <section id="loginPage" class="card login-card">
-      <div class="brand">◆ <span data-i18n="brand">Test Portal</span></div>
-      <h1 data-i18n="loginTitle">Welcome back</h1>
-      <p class="muted" data-i18n="loginSubtitle">Sign in to test the dashboard.</p>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <label data-i18n="email">Email</label>
-      <input id="email" type="email" placeholder="you@example.com">
+<title>Test Portal</title>
 
-      <label data-i18n="password">Password</label>
-      <input id="password" type="password" placeholder="••••••••">
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-      <button id="loginBtn" class="primary" data-i18n="login">Login</button>
-      <p id="loginMsg" class="message"></p>
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  min-height:100vh;
+  background:linear-gradient(135deg,#eef4ff,#f8fbff);
+  color:#172033;
+}
 
-      <div class="lang-row">
-        <span data-i18n="language">Language</span>
-        <select id="language">
-          <option value="en">English</option>
-          <option value="bn">বাংলা</option>
-          <option value="hi">हिन्दी</option>
-          <option value="ar">العربية</option>
-        </select>
-      </div>
-    </section>
+button,input,select{
+  font:inherit;
+}
 
-    <section id="dashboardPage" class="dashboard hidden">
-      <header class="topbar">
-        <div>
-          <div class="brand">◆ <span data-i18n="brand">Test Portal</span></div>
-          <h2 data-i18n="dashboard">Dashboard</h2>
-        </div>
-        <div class="actions">
-          <select id="language2">
-            <option value="en">English</option>
-            <option value="bn">বাংলা</option>
-            <option value="hi">हिन्दी</option>
-            <option value="ar">العربية</option>
-          </select>
-          <button id="logoutBtn" class="ghost" data-i18n="logout">Logout</button>
-        </div>
-      </header>
+.container{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
 
-      <div class="welcome card">
-        <div>
-          <span class="badge" data-i18n="online">ONLINE</span>
-          <h1><span data-i18n="hello">Hello</span>, <span id="userName">User</span> 👋</h1>
-          <p class="muted" data-i18n="ready">Your test dashboard is ready.</p>
-        </div>
-      </div>
+/* ================= LOGIN ================= */
 
-      <div class="stats">
-        <div class="stat card"><span data-i18n="users">Users</span><strong>128</strong></div>
-        <div class="stat card"><span data-i18n="tasks">Tasks</span><strong>24</strong></div>
-        <div class="stat card"><span data-i18n="messages">Messages</span><strong>9</strong></div>
-      </div>
+.auth-box{
+  width:100%;
+  max-width:420px;
+  background:#fff;
+  border-radius:24px;
+  padding:32px;
+  box-shadow:0 20px 60px rgba(30,60,100,.12);
+  border:1px solid #e8edf5;
+}
 
-      <div class="grid">
-        <div class="card panel">
-          <h3 data-i18n="quickActions">Quick Actions</h3>
-          <button class="action" data-i18n="newTask">＋ New Task</button>
-          <button class="action" data-i18n="profile">👤 Profile</button>
-          <button class="action" data-i18n="settings">⚙ Settings</button>
-        </div>
-        <div class="card panel">
-          <h3 data-i18n="status">Bot Test Status</h3>
-          <div class="status"><span></span><b data-i18n="working">Working</b></div>
-          <p class="muted" data-i18n="statusText">This is a front-end-only test page. Nothing is connected.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-  <script src="script.js"></script>
-</body>
-</html>
+.logo{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.logo-icon{
+  width:55px;
+  height:55px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  background:#315efb;
+  color:white;
+  font-size:25px;
+  font-weight:bold;
+  box-shadow:0 8px 20px rgba(49,94,251,.25);
+}
+
+.logo h2{
+  margin-top:12px;
+  font-size:21px;
+}
+
+.logo p{
+  color:#7b8798;
+  font-size:13px;
+  margin-top:5px;
+}
+
+.auth-title{
+  font-size:28px;
+  margin-bottom:7px;
+}
+
+.auth-subtitle{
+  color:#7b8798;
+  font-size:14px;
+  margin-bottom:25px;
+  line-height:1.5;
+}
+
+.form-group{
+  margin-bottom:17px;
+}
+
+.form-group label{
+  display:block;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+
+.input-box{
+  position:relative;
+}
+
+.input-box input{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid #dce3ed;
+  border-radius:12px;
+  outline:none;
+  transition:.2s;
+  background:#fbfcfe;
+}
+
+.input-box input:focus{
+  border-color:#315efb;
+  background:#fff;
+  box-shadow:0 0 0 3px rgba(49,94,251,.08);
+}
+
+.password-toggle{
+  position:absolute;
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+  border:0;
+  background:none;
+  cursor:pointer;
+  color:#7b8798;
+}
+
+.options{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:4px 0 18px;
+  font-size:12px;
+}
+
+.remember{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:#667085;
+}
+
+.options a{
+  color:#315efb;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.primary-btn{
+  width:100%;
+  border:0;
+  padding:14px;
+  border-radius:12px;
+  background:#315efb;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.primary-btn:hover{
+  background:#244de0;
+  transform:translateY(-1px);
+}
+
+.divider{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#9aa4b2;
+  font-size:12px;
+  margin:22px 0;
+}
+
+.divider::before,
+.divider::after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:#e6eaf0;
+}
+
+.switch-text{
+  text-align:center;
+  color:#718096;
+  font-size:13px;
+}
+
+.switch-text button{
+  border:0;
+  background:none;
+  color:#315efb;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.language{
+  margin-top:22px;
+  text-align:center;
+}
+
+.language select{
+  padding:8px 12px;
+  border:1px solid #dce3ed;
+  border-radius:9px;
+  outline:none;
+}
+
+/* ================= SIGN UP ================= */
+
+.signup-only{
+  display:none;
+}
+
+.back-login{
+  margin-bottom:20px;
+  border:0;
+  background:none;
+  color:#315efb;
+  cursor:pointer;
+  font-size:13px;
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard{
+  display:none;
+  width:100%;
+  max-width:1050px;
+  margin:auto;
+  padding:25px 18px;
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+.top-brand{
+  font-size:21px;
+  font-weight:bold;
+}
+
+.top-brand span{
+  color:#315efb;
+}
+
+.top-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.top-actions select{
+  padding:9px 12px;
+  border:1px solid #dce3ed;
+  border-radius:9px;
+  background:white;
+}
+
+.logout{
+  border:1px solid #dce3ed;
+  background:white;
+  padding:9px 14px;
+  border-radius:9px;
+  cursor:pointer;
+}
+
+.welcome{
+  background:#315efb;
+  color:white;
+  padding:28px;
+  border-radius:20px;
+  margin-bottom:18px;
+  box-shadow:0 12px 30px rgba(49,94,251,.2);
+}
+
+.welcome small{
+  opacity:.8;
+}
