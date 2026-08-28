@@ -1,50 +1,84 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
+  <title>Test Login & Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="login-wrapper">
-    <section class="login-card">
-      <div class="brand">
-        <div class="logo">L</div>
-        <h1>Welcome Back</h1>
-        <p>আপনার অ্যাকাউন্টে লগইন করুন</p>
+  <main class="app">
+    <section id="loginPage" class="card login-card">
+      <div class="brand">◆ <span data-i18n="brand">Test Portal</span></div>
+      <h1 data-i18n="loginTitle">Welcome back</h1>
+      <p class="muted" data-i18n="loginSubtitle">Sign in to test the dashboard.</p>
+
+      <label data-i18n="email">Email</label>
+      <input id="email" type="email" placeholder="you@example.com">
+
+      <label data-i18n="password">Password</label>
+      <input id="password" type="password" placeholder="••••••••">
+
+      <button id="loginBtn" class="primary" data-i18n="login">Login</button>
+      <p id="loginMsg" class="message"></p>
+
+      <div class="lang-row">
+        <span data-i18n="language">Language</span>
+        <select id="language">
+          <option value="en">English</option>
+          <option value="bn">বাংলা</option>
+          <option value="hi">हिन्दी</option>
+          <option value="ar">العربية</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="dashboardPage" class="dashboard hidden">
+      <header class="topbar">
+        <div>
+          <div class="brand">◆ <span data-i18n="brand">Test Portal</span></div>
+          <h2 data-i18n="dashboard">Dashboard</h2>
+        </div>
+        <div class="actions">
+          <select id="language2">
+            <option value="en">English</option>
+            <option value="bn">বাংলা</option>
+            <option value="hi">हिन्दी</option>
+            <option value="ar">العربية</option>
+          </select>
+          <button id="logoutBtn" class="ghost" data-i18n="logout">Logout</button>
+        </div>
+      </header>
+
+      <div class="welcome card">
+        <div>
+          <span class="badge" data-i18n="online">ONLINE</span>
+          <h1><span data-i18n="hello">Hello</span>, <span id="userName">User</span> 👋</h1>
+          <p class="muted" data-i18n="ready">Your test dashboard is ready.</p>
+        </div>
       </div>
 
-      <form id="loginForm">
-        <div class="input-group">
-          <label for="email">ইমেইল</label>
-          <input type="email" id="email" placeholder="you@example.com" required>
+      <div class="stats">
+        <div class="stat card"><span data-i18n="users">Users</span><strong>128</strong></div>
+        <div class="stat card"><span data-i18n="tasks">Tasks</span><strong>24</strong></div>
+        <div class="stat card"><span data-i18n="messages">Messages</span><strong>9</strong></div>
+      </div>
+
+      <div class="grid">
+        <div class="card panel">
+          <h3 data-i18n="quickActions">Quick Actions</h3>
+          <button class="action" data-i18n="newTask">＋ New Task</button>
+          <button class="action" data-i18n="profile">👤 Profile</button>
+          <button class="action" data-i18n="settings">⚙ Settings</button>
         </div>
-
-        <div class="input-group">
-          <div class="password-label">
-            <label for="password">পাসওয়ার্ড</label>
-            <a href="#" id="forgotPassword">পাসওয়ার্ড ভুলে গেছেন?</a>
-          </div>
-          <div class="password-box">
-            <input type="password" id="password" placeholder="আপনার পাসওয়ার্ড" required>
-            <button type="button" id="togglePassword" aria-label="পাসওয়ার্ড দেখান">Show</button>
-          </div>
+        <div class="card panel">
+          <h3 data-i18n="status">Bot Test Status</h3>
+          <div class="status"><span></span><b data-i18n="working">Working</b></div>
+          <p class="muted" data-i18n="statusText">This is a front-end-only test page. Nothing is connected.</p>
         </div>
-
-        <label class="remember">
-          <input type="checkbox" id="remember">
-          <span>আমাকে মনে রাখুন</span>
-        </label>
-
-        <button class="login-btn" type="submit">Login</button>
-        <p id="message" class="message"></p>
-      </form>
-
-      <p class="signup">অ্যাকাউন্ট নেই? <a href="#">Sign Up</a></p>
+      </div>
     </section>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>
