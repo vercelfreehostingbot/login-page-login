@@ -1,0 +1,6 @@
+{
+  "name": "Vercel Free Hosting Bot",
+  "description": "Production-ready Telegram bot for deploying and managing web projects on Vercel via GitHub and Firebase.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
